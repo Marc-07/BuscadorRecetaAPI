@@ -1,5 +1,7 @@
 function iniciarApp(){
 
+    const selectCategorias = document.querySelector("#categorias")
+
     obtenerCategorias();
     function obtenerCategorias (){
 
@@ -10,7 +12,14 @@ function iniciarApp(){
     }
 
     function mostrarCategorias (categorias = []){
-        console.log(categorias);
+        categorias.forEach (categoria => {
+
+            const {strCategory} = categoria;
+            const option = document.createElement("OPTION")
+            option.value = strCategory;
+            option.textContent = strCategory;
+            selectCategorias.appendChild(option)
+        })
     }
 }
 
